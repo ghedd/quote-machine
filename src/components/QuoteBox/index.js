@@ -12,7 +12,7 @@ const QuoteBox = ({ quoteContent }) => {
         <div className="InnerBox__Text">
           <p id="text">{quoteContent.quote}</p>
         </div>
-        <div className="InnerBox__LongTextIndicator" />
+        {/* <div className="InnerBox__LongTextIndicator" /> */}
 
         <hr className="InnerBox__Hrzline" />
         <div className="InnerBox__Author">

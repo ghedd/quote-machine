@@ -1,3 +1,4 @@
+@import "./variables.scss";
 .App {
   margin: 0 auto;
   position: absolute;
@@ -5,6 +6,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  background-color: $clr-sc-1;
   background-image: url(../images/danielle-macinnes-IuLgi9PWETU-unsplash.jpg);
   background-size: cover;
   background-repeat: no-repeat;

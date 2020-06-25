@@ -39,10 +39,10 @@
     line-height: 1.5;
     letter-spacing: 0.05rem;
     // min-height: 400px;
-    ::-webkit-scrollbar {
-      display: none;
-    }
-    scrollbar-width: none;
+    // ::-webkit-scrollbar {
+    //   display: none;
+    // }
+    // scrollbar-width: none;
   }
   &__Author {
     font-size: $fnt-sz-med;
@@ -126,7 +126,7 @@
       justify-content: center;
       grid-area: QuoteText;
       z-index: 1;
-      overflow-y: scroll;
+      overflow-y: auto;
       max-height: 30vh;
     }
     &__LongTextIndicator {

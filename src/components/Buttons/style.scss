@@ -24,6 +24,10 @@
       background-color: $clr-pr-l;
       color: $clr-pr-d;
     }
+    &--pr,
+    &--sc {
+      border: 2px solid $clr-pr-l;
+    }
     &--pr {
       background-color: rgba(40, 28, 27, 0.85);
     }

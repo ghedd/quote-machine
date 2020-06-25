@@ -15,32 +15,43 @@ const photoAuthor = {
 
 const QUOTE_URL = "http://quotes.stormconsultancy.co.uk/random.json";
 
-const getQuoteContent = async (callback) => {
-  try {
-    let resp = await fetch(QUOTE_URL);
-    if (resp.ok) {
-      let data = await resp.json();
-      callback(data);
-    } else {
-      throw Error;
-    }
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 const App = () => {
-  // const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFirstLoading, setIsFirstLoading] = useState(true);
   const [quoteContent, setQuoteContent] = useState([]);
-  // const [error, setError] = useState("");
+  const [error, setError] = useState("");
 
+  const getQuoteContent = async () => {
+    setIsLoading(true);
+    try {
+      let resp = await fetch(QUOTE_URL);
+      if (resp.ok) {
+        setIsLoading(false);
+        let data = await resp.json();
+        setQuoteContent(data);
+      } else {
+        throw Error("Uhh Error fetching post");
+      }
+    } catch (err) {
+      setError(err);
+      console.log(err);
+    }
+  };
+
+  let firstLoad = async () => {
+    await getQuoteContent();
+    setIsFirstLoading(false);
+  };
   useEffect(() => {
-    getQuoteContent((quoteContent) => setQuoteContent(quoteContent));
+    firstLoad();
   }, []);
 
-  return (
+  return isFirstLoading ? (
+    <p>Loading...</p>
+  ) : (
     <main className="App">
-      <QuoteBox quoteContent={quoteContent} />
+      {isLoading ? <p>Loading...</p> : <QuoteBox quoteContent={quoteContent} />}
+
       <Footer
         photoAuthor={photoAuthor.name}
         authorCredLink={photoAuthor.credit}

@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <main className="App">
-      <QuoteBox />
+      <QuoteBox quoteContent={quoteContent} />
       <Footer
         photoAuthor={photoAuthor.name}
         authorCredLink={photoAuthor.credit}

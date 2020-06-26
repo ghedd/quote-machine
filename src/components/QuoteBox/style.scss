@@ -1,6 +1,6 @@
 @import "../../style/variables.scss";
-@import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Allerta&family=Squada+One&display=swap");
 #quote-box {
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
 }
 .InnerBox {
   color: $clr-pr-l;
-  // position: absolute;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -28,12 +28,13 @@
 
   &__Text,
   &__Author {
-    font-family: "Yellowtail", cursive;
+    // font-family: "Yellowtail", cursive;
     min-width: 50%;
     text-align: center;
   }
   &__Text {
-    font-size: $fnt-sz-big;
+    font-family: "Allerta", sans-serif;
+    font-size: $fnt-sz-med;
     overflow-y: auto;
     z-index: 0;
     line-height: 1.5;
@@ -45,13 +46,31 @@
     // scrollbar-width: none;
   }
   &__Author {
-    font-size: $fnt-sz-med;
+    font-family: "Squada One", cursive;
+    font-size: $fnt-sz-big;
+    align-self: flex-end;
   }
   &__Hrzline {
     width: 60%;
     height: 0.01px;
     border-bottom: solid $clr-pr-l 0.01px;
     background-color: $clr-pr-l;
+  }
+  &__Text,
+  &__Author,
+  &__Hrzline {
+    animation: fade-in 1s forwards;
+    transition: all ease-in 0.5s;
+  }
+}
+.InnerBox {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }
 .InnerBox {
@@ -106,7 +125,7 @@
       "QuoteIcon . ."
       "QuoteText QuoteText QuoteText"
       "ScrollInd ScrollInd ScrollInd"
-      ". Separator ."
+      "Separator Separator Separator"
       ". . Author";
 
     &__QuoteIcon {

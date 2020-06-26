@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import "../style/main.scss";
 import QuoteBox from "./QuoteBox";
 import Footer from "./Footer";
+import Loading from "./Loading";
 
 const photoAuthor = {
   name: "Danielle MacInnes",
@@ -26,11 +27,13 @@ const App = () => {
     try {
       let resp = await fetch(QUOTE_URL);
       if (resp.ok) {
-        setIsLoading(false);
+        // setTimeout(() => {
+          setIsLoading(false);
+        // }, 500);
         let data = await resp.json();
         setQuoteContent(data);
       } else {
-        throw Error("Uhh Error fetching post");
+        throw Error("Uhh error fetching post");
       }
     } catch (err) {
       setError(err);
@@ -38,28 +41,40 @@ const App = () => {
     }
   };
 
-  let firstLoad = async () => {
-    await getQuoteContent();
-    setIsFirstLoading(false);
-  };
   useEffect(() => {
-    firstLoad();
+    setTimeout(() => {
+      setIsFirstLoading(false);
+    }, 500);
+    getQuoteContent();
   }, []);
 
-  return isFirstLoading ? (
-    <p>Loading...</p>
-  ) : (
-    <main className="App">
-      {isLoading ? <p>Loading...</p> : <QuoteBox quoteContent={quoteContent} />}
+  if (error) {
+    return (
+      <main>
+        <p>Error</p>
+      </main>
+    );
+  } else if (isFirstLoading) {
+    return <Loading />;
+  } else {
+    return (
+      <main className="App">
+        
+        <QuoteBox
+          isLoading={isLoading}
+          quoteContent={quoteContent}
+          getNewQuote={getQuoteContent}
+        />
 
-      <Footer
-        photoAuthor={photoAuthor.name}
-        authorCredLink={photoAuthor.credit}
-        authorUnsplash={photoAuthor.unspLink}
-        unsplash={photoAuthor.photoLib}
-      />
-    </main>
-  );
+        <Footer
+          photoAuthor={photoAuthor.name}
+          authorCredLink={photoAuthor.credit}
+          authorUnsplash={photoAuthor.unspLink}
+          unsplash={photoAuthor.photoLib}
+        />
+      </main>
+    );
+  }
 };
 
 export default App;

@@ -13,7 +13,7 @@ const QuoteBox = ({ quoteContent, getNewQuote, isLoading }) => {
         ) : (
           <>
             <div className="InnerBox__Text">
-              <p id="text">{quoteContent.quote}</p>
+              <p id="text">{quoteContent.content}</p>
             </div>
             <hr className="InnerBox__Hrzline" />
             <div className="InnerBox__Author">

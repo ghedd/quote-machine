@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // import logo from "./logo.svg";
-import "../style/main.scss";
+import "../style/background.scss";
 import QuoteBox from "./QuoteBox";
 import Footer from "./Footer";
 import Loading from "./Loading";
@@ -14,7 +14,7 @@ const photoAuthor = {
   photoLib: "Unsplash",
 };
 
-const QUOTE_URL = "http://quotes.stormconsultancy.co.uk/random.json";
+const QUOTE_URL = "https://api.quotable.io/random";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);

@@ -24,7 +24,7 @@ const QuoteBox = ({ quoteContent, getNewQuote, isLoading }) => {
 
         {/* <div className="InnerBox__LongTextIndicator" /> */}
       </div>
-      <Buttons getNewQuote={getNewQuote} />
+      <Buttons getNewQuote={getNewQuote} quoteContent={quoteContent} />
     </div>
   );
 };

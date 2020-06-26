@@ -10,6 +10,8 @@
   gap: 0 1rem;
 
   .btn {
+    display: block;
+    text-align: center;
     width: 100%;
     padding: 1rem;
     border-radius: 0;
@@ -38,7 +40,7 @@
   &__BtnTweet {
     #tweet-quote {
       text-decoration: none;
-      color: inherit;
+      // color: inherit;
     }
   }
 }

@@ -3,7 +3,7 @@ import "./style.scss";
 const fetchNewQuote = (getNewQuote) => {
   getNewQuote();
 };
-const Buttons = ({ getNewQuote }) => {
+const Buttons = ({ getNewQuote, quoteContent }) => {
   return (
     <div className="Btns">
       <div className="Btns__BtnGenerate">
@@ -16,11 +16,18 @@ const Buttons = ({ getNewQuote }) => {
         </button>
       </div>
       <div className="Btns__BtnTweet">
-        <button className="btn btn--sc ">
-          <a id="tweet-quote" href="#">
-            tweet
-          </a>
-        </button>
+        {/* <button className="btn btn--sc"> */}
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          role="button"
+          className="btn btn--sc"
+          id="tweet-quote"
+          href={`https://twitter.com/intent/tweet?text=${quoteContent.quote} -- ${quoteContent.author}`}
+        >
+          tweet
+        </a>
+        {/* </button> */}
       </div>
     </div>
   );

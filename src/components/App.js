@@ -28,7 +28,7 @@ const App = () => {
       let resp = await fetch(QUOTE_URL);
       if (resp.ok) {
         // setTimeout(() => {
-          setIsLoading(false);
+        setIsLoading(false);
         // }, 500);
         let data = await resp.json();
         setQuoteContent(data);
@@ -59,7 +59,6 @@ const App = () => {
   } else {
     return (
       <main className="App">
-        
         <QuoteBox
           isLoading={isLoading}
           quoteContent={quoteContent}

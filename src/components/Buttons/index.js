@@ -23,7 +23,7 @@ const Buttons = ({ getNewQuote, quoteContent }) => {
           role="button"
           className="btn btn--sc"
           id="tweet-quote"
-          href={`https://twitter.com/intent/tweet?text=${quoteContent.quote} -- ${quoteContent.author}`}
+          href={`https://twitter.com/intent/tweet?text=${quoteContent.content} -- ${quoteContent.author}`}
         >
           tweet
         </a>

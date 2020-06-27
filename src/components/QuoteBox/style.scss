@@ -14,7 +14,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
+  width: calc(100vw - 3.5rem);
   margin-top: calc(8vh - 1rem);
   padding: calc(0.5vw + 1rem) calc(0.5vw + 0.5rem);
 
@@ -48,7 +48,7 @@
   &__Author {
     font-family: "Squada One", cursive;
     font-size: $fnt-sz-big;
-    
+   
   }
   &__Hrzline {
     width: 60%;
@@ -170,6 +170,10 @@
       // margin-bottom: 0.5rem;
       color: $clr-pr-d;
       background-color: $clr-sc-2;
+    }
+    &__Author {
+      justify-self: flex-end;
+      align-self: flex-end;
     }
   }
 }
